@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="HandheldFriendly" content="True" />
-    <title>{{meta_title}}</title>
-    <meta name="description" content="{{meta_description}}" />
+    <title>
+    {{#if blog.isHome}}
+      {{blog.title}}
+    {{else}}
+      {{#if page.curPage}}
+        {{blog.title}} - {{page.curPage}}
+      {{else}}
+        {{page.post.title}}
+      {{/if}}
+    {{/if}}
+    </title>
+    <meta name="description" content="{{#if page.post}}{{#if page.post.description}}{{page.post.description}}{{else}}{{blog.description}}{{/if}}{{else}}{{blog.description}}{{/if}}" />
 
     <!-- Resources built by Grunt -->
     <link rel="stylesheet" type="text/css" href="{{asset "prebuilt/dist/base.css"}}"/>
@@ -13,21 +23,13 @@
     <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.3.41/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href='//fonts.googleapis.com/css?family=Grand+Hotel' type='text/css' />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/default.min.css" />
-
-
-    {{ghost_head}}
   </head>
   <body class="loading">
     <div id="loader"></div>
-    {{{body}}}
+    {{{content}}}
     <!-- Scripts -->
     <script type="text/javascript" src="{{asset "prebuilt/static/jquery.min.js"}}"></script>
     <script type="text/javascript" src="{{asset "prebuilt/dist/plugin.js"}}"></script>
     <script type="text/javascript" src="{{asset "prebuilt/dist/Diaspora.js"}}"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
-    <script>
-      hljs.initHighlightingOnLoad();
-    </script>
-    {{ghost_foot}}
   </body>
 </html>

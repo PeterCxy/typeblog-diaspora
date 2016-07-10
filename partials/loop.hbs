@@ -1,18 +1,18 @@
 {{#foreach posts}}
-<div class="post" {{#is "home"}}{{#if @first}}style="display: none;"{{/if}}{{/is}}>
-  <a data-id="{{id}}" href="{{url absolute="true"}}" title="title">
+<div class="post" {{#if isHome}}{{#if @first}}style="display: none;"{{/if}}{{/if}}>
+  <a href="{{url}}" title="title">
     <img width="680" height="440" src="
-    {{#if image}}
-    {{image}}
+    {{#if cover}}
+    {{cover}}
     {{else}}
-    {{#if @blog.cover}}{{@blog.cover}}{{else}}{{asset "prebuilt/images/default.jpg"}}{{/if}}
+    {{#if @root.blog.cover}}{{@root.blog.cover}}{{else}}{{asset "prebuilt/images/default.jpg"}}{{/if}}
     {{/if}}
     " class="cover" />
   </a>
   <div class="else">
-    <p>{{date format="DD MMMM YYYY"}}</p>
-    <h3><a data-id="{{id}}" class="posttitle" href="{{url absolute="true"}}">{{title}}</a></h3>
-    <p>{{excerpt characters="50"}}...</p>
+    <p>{{date this.date "DD MMMM YYYY"}}</p>
+    <h3><a class="posttitle" href="{{url}}">{{title}}</a></h3>
+    <p>{{shorten content 50}}...</p>
   </div>
 </div>
 {{/foreach}}
