@@ -1,2 +1,5 @@
-<a target="_blank" href="https://twitter.com/PeterCxy"><i class="mdi mdi-twitter"></i></a>
-<a target="_blank" href="https://github.com/PeterCxy"><i class="mdi mdi-github-circle"></i></a>
+{{#if @root.arguments.social}}
+{{#each @root.arguments.social}}
+<a target="_blank" href="{{url}}"><i class="mdi mdi-{{icon}}"></i></a>
+{{/each}}
+{{/if}}

@@ -55,3 +55,9 @@ html.loading, body.loading {
     overflow: hidden;
 }
 
+pre {
+    display: inline-block;
+    width: 100%;
+    overflow-x: scroll;
+    background-color: #F5F5F5;
+}

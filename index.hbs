@@ -1,19 +1,19 @@
 <div class="nav">
-  {{navigation}}
-  <p>&copy; {{blog.title}}. Proudly powered by Ghost.</p>
+  {{> "navigation.hbs"}}
+  <p>&copy; {{blog.title}}. Proudly powered by <a href="https://github.com/PeterCxy/Typeblog">Typeblog</a>.</p>
 </div>
 <div id="container">
   <div id="screen">
     <div id="mark">
       <div class="layer" data-depth="0.4">
         <img id="cover" crossorigin="anonymous" src="
-        {{#foreach posts}}{{#if @first}}
+        {{#each posts}}{{#if @first}}
         {{#if cover}}
         {{cover}}
         {{else}}
-        {{#if @root.blog.cover}}{{@root.blog.cover}}{{else}}{{asset "prebuilt/images/default.jpg"}}{{/if}}
+        {{#if @root.arguments.cover}}{{@root.arguments.cover}}{{else}}{{asset "prebuilt/images/default.jpg"}}{{/if}}
         {{/if}}
-        {{/if}}{{/foreach}}
+        {{/if}}{{/each}}
         "/>
       </div>
     </div>
@@ -32,19 +32,19 @@
       </div>
     </div>
 
-    {{#foreach posts}}
+    {{#each posts}}
     {{#if @first}}
     <div id="post0">
       <p>{{date this.date "DD MMMM YYYY"}}</p>
-      <h2><a class="posttitle" href="{{url}}">{{title}}</a></h2>
-      <p>{{shorten content 50}}...</p>
+      <h2><a class="posttitle" href="{{url}}/">{{title}}</a></h2>
+      <p>{{shorten contentStripped 50}}...</p>
     </div>
     {{/if}}
-    {{/foreach}}
+    {{/each}}
   </div>
   <div id="primary" style="display: none;">
-  {{> "loop"}}
+  {{> "loop.hbs"}}
   </div>
-  {{pagination}}
+  {{> "pagination.hbs"}}
 </div>
 <div id="preview" class="trans"></div>

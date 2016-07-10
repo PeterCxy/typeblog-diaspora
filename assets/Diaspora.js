@@ -6,7 +6,7 @@
 
 var disqus_config = function () {
   this.page.url = $('#page_url').text()
-  this.page.identifier = $('#page_id').text()
+  //this.page.identifier = $('#page_id').text()
 };
 
 var go_back = function() {
@@ -167,9 +167,6 @@ var Diaspora = {
                         'overflow-y': 'auto'
                     }).removeClass('trans')
                     $('#top').show()
-                    $('pre code').each(function(i, block) {
-                      hljs.highlightBlock(block);
-                    });
 
                     Diaspora.loaded()
                 }, 500)
