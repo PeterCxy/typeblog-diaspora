@@ -1,4 +1,4 @@
-{{#post}}
+{{#with post}}
 <div id="single">
   <p id='page_url' style="display: none;">{{@root.blog.url}}/{{url}}/</p>
   <p id='disqus_username' style="display: none;">{{@root.arguments.disqus_username}}</p>
@@ -32,4 +32,4 @@
     </div>
   </div>
 </div>
-{{/post}}
+{{/with}}

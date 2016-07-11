@@ -7,13 +7,13 @@
     <div id="mark">
       <div class="layer" data-depth="0.4">
         <img id="cover" crossorigin="anonymous" src="
-        {{#each posts}}{{#if @first}}
+        {{#with posts.1}}
         {{#if cover}}
         {{cover}}
         {{else}}
         {{#if @root.arguments.cover}}{{@root.arguments.cover}}{{else}}{{asset "prebuilt/images/default.jpg"}}{{/if}}
         {{/if}}
-        {{/if}}{{/each}}
+        {{/with}}
         "/>
       </div>
     </div>
@@ -32,15 +32,13 @@
       </div>
     </div>
 
-    {{#each posts}}
-    {{#if @first}}
+    {{#with posts.1}}
     <div id="post0">
       <p>{{date this.date "DD MMMM YYYY"}}</p>
-      <h2><a class="posttitle" href="{{url}}/">{{title}}</a></h2>
+      <h2><a class="posttitle" href="/{{url}}/">{{title}}</a></h2>
       <p>{{shorten contentStripped 50}}...</p>
     </div>
-    {{/if}}
-    {{/each}}
+    {{/with}}
   </div>
   <div id="primary" style="display: none;">
   {{> "loop.hbs"}}
