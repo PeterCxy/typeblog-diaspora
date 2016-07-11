@@ -7,7 +7,7 @@
     <div id="mark">
       <div class="layer" data-depth="0.4">
         <img id="cover" crossorigin="anonymous" src="
-        {{#with posts.[1]}}
+        {{#with posts.[0]}}
         {{#if cover}}
         {{cover}}
         {{else}}
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    {{#with posts.[1]}}
+    {{#with posts.[0]}}
     <div id="post0">
       <p>{{date this.date "DD MMMM YYYY"}}</p>
       <h2><a class="posttitle" href="/{{url}}/">{{title}}</a></h2>
