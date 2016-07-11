@@ -63,6 +63,7 @@ pre {
     background-color: #263238;
     color: white;
     padding: 10px;
+    margin-left: -10px;
 }
 
 pre code {
