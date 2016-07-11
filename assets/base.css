@@ -59,5 +59,12 @@ pre {
     display: inline-block;
     width: 100%;
     overflow-x: scroll;
-    background-color: #F5F5F5;
+    font-family: "Source Code Pro";
+    background-color: #263238;
+    color: white;
+    padding: 10px;
+}
+
+pre code {
+    font-family: "Source Code Pro";
 }
