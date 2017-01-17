@@ -106,7 +106,31 @@ audio {
     margin-top: 15px;
 }
 #post0 h2 a {
+    position: relative;
     color: #fff;
+    text-decoration: none;
+}
+#post0 h2 a:hover {
+    color: #fff;
+}
+#post0 h2 > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+#post0 h2 > a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 #post0 h2 + p {
     color: #fff;
@@ -160,6 +184,29 @@ audio {
 }
 .else h3 a {
     color: #333;
+    position: relative;
+}
+.else h3 a:hover {
+    color: #333;
+}
+.else h3 > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #333;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.else h3 > a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 .else h3 + p {
     color: #555;
@@ -743,7 +790,7 @@ h1.title {
 
 /* article content */
 .content {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 2;
     color: #333;
     display: none;
@@ -774,6 +821,12 @@ h1.title {
 .content h1 {
     font-size: 26px;
 }
+.content h1:before, .content h2:before, .content h3:before, .content h4:before, .content h5:before {
+    content: "#";
+    position: relative;
+    right: -6px;
+    left: -20px;
+}
 .content blockquote {
     margin: 14px 0;
     padding-left: 40px;
@@ -799,6 +852,12 @@ h1.title {
 }
 .content ol li {
     list-style: decimal;
+}
+.content p {
+    padding-bottom: 10px;
+}
+.content p > code {
+    color: #C51162;
 }
 .alignleft {
     float: left;
