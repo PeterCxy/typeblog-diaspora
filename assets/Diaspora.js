@@ -4,11 +4,6 @@
  * @url http://lorem.in
  */
 
-var disqus_config = function () {
-  this.page.url = $('#page_url').text()
-  //this.page.identifier = $('#page_id').text()
-};
-
 var go_back = function() {
   if ($('#preview').length == 0) {
     window.location.href = "/";
@@ -443,16 +438,16 @@ $(function() {
             // comment
             case (tag.indexOf('comment') != -1):
                 Diaspora.loading()
-                $('.comment').removeClass('link').html('<div id="disqus_thread"></div>');
-
-                (function() {
-                  var d = document, s = d.createElement('script');
-                  s.src = '//' + $('#disqus_username').text() + '.disqus.com/embed.js'; // Replace `example` with your Disqus username
-                  s.setAttribute('data-timestamp', +new Date());
-                  (d.head || d.body).appendChild(s);
-                })();
-
-
+                $('.comment').removeClass('link').html('<section id="isso-thread"></section>');
+                var script = document.createElement('script');
+                var prefix = $('meta[name=isso]').attr('content');
+                script.src = prefix + "js/embed.min.js";
+                script.setAttribute('data-isso', prefix);
+                script.setAttribute('data-isso-require-author', $('meta[name=isso-require-author]').attr('content'));
+                script.setAttribute('data-isso-require-email', $('meta[name=isso-require-email]').attr('content'));
+                script.setAttribute('data-isso-lang', $('meta[name=isso-lang]').attr('content'));
+                script.setAttribute('data-isso-reply-to-self', $('meta[name=isso-reply-to-self]').attr('content'));
+                document.head.appendChild(script);
                 Diaspora.loaded()
             break;
 
