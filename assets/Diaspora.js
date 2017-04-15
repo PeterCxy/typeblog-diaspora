@@ -438,7 +438,8 @@ $(function() {
             // comment
             case (tag.indexOf('comment') != -1):
                 Diaspora.loading()
-                $('.comment').removeClass('link').html('<section id="isso-thread"></section>');
+                var thread = $('#page_url').text();
+                $('.comment').removeClass('link').html('<section id="isso-thread" data-isso-id="' + thread + '"></section>');
                 var script = document.createElement('script');
                 var prefix = $('meta[name=isso]').attr('content');
                 script.src = prefix + "js/embed.min.js";
