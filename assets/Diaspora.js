@@ -438,17 +438,18 @@ $(function() {
             // comment
             case (tag.indexOf('comment') != -1):
                 Diaspora.loading()
-                var thread = $('#page_url').text();
-                $('.comment').removeClass('link').html('<section id="isso-thread" data-isso-id="' + thread + '"></section>');
-                var script = document.createElement('script');
-                var prefix = $('meta[name=isso]').attr('content');
-                script.src = prefix + "js/embed.min.js";
-                script.setAttribute('data-isso', prefix);
-                script.setAttribute('data-isso-require-author', $('meta[name=isso-require-author]').attr('content'));
-                script.setAttribute('data-isso-require-email', $('meta[name=isso-require-email]').attr('content'));
-                script.setAttribute('data-isso-lang', $('meta[name=isso-lang]').attr('content'));
-                script.setAttribute('data-isso-reply-to-self', $('meta[name=isso-reply-to-self]').attr('content'));
-                document.head.appendChild(script);
+                var isso_id = $('#page_url').text()
+                if (isso_id == null || isso_id.trim() == "") return
+                $('.comment').removeClass('link').html('<section id="isso-thread" data-isso-id="' + isso_id + '"></section>')
+                var script = document.createElement('script')
+                var prefix = $('meta[name=isso]').attr('content')
+                script.src = prefix + "js/embed.min.js"
+                script.setAttribute('data-isso', prefix)
+                script.setAttribute('data-isso-require-author', $('meta[name=isso-require-author]').attr('content'))
+                script.setAttribute('data-isso-require-email', $('meta[name=isso-require-email]').attr('content'))
+                script.setAttribute('data-isso-lang', $('meta[name=isso-lang]').attr('content'))
+                script.setAttribute('data-isso-reply-to-self', $('meta[name=isso-reply-to-self]').attr('content'))
+                document.head.appendChild(script)
                 Diaspora.loaded()
             break;
 
